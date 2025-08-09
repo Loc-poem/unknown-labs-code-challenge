@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coding-challenge/shared": "workspace:*",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.4.6",
-    "@my-org/shared": "workspace:*"
+    "next": "15.4.6"
   },
   "devDependencies": {
     "typescript": "^5",
