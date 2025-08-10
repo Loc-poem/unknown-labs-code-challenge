@@ -1,5 +1,5 @@
 import { DynamicModule, Module, Type } from '@nestjs/common';
-import { SOLANA_NETWORKS } from '@coding-challenge/shared/constants';
+import { SOLANA_NETWORKS } from '../../constants/constants';
 import { SolanaService } from './solana/solana.service';
 import {
   BlockchainAsyncOptions,

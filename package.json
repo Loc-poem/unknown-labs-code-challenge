@@ -4,7 +4,16 @@
   "scripts": {
     "dev:api": "pnpm --filter api start:dev",
     "dev:web": "pnpm --filter web dev",
-    "dev": "concurrently \"pnpm dev:api\" \"pnpm dev:web\""
+    "dev": "concurrently \"pnpm dev:api\" \"pnpm dev:web\"",
+    "build:api": "pnpm --filter api build",
+    "build:web": "pnpm --filter web build",
+    "build": "pnpm build:api && pnpm build:web",
+    "start:api": "pnpm --filter api start:prod",
+    "start:web": "pnpm --filter web start",
+    "start": "concurrently \"pnpm start:api\" \"pnpm start:web\"",
+    "prod:api": "pnpm build:api && pnpm start:api",
+    "prod:web": "pnpm build:web && pnpm start:web",
+    "prod": "pnpm build && pnpm start"
   },
   "devDependencies": {
     "concurrently": "^8.2.0"

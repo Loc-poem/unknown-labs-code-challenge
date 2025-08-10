@@ -8,7 +8,7 @@ import { ApiController } from './api.controller';
     BlockchainModule.registerAsync({
       isGlobal: true,
       useFactory: async (configService: ConfigService) => ({
-        mainnet: configService.get<string>('NODE_ENV') === 'production',
+        mainnet: configService.get<string>('APP_ENV') === 'production',
       }),
       inject: [ConfigService],
     }),

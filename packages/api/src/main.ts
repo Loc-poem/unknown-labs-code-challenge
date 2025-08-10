@@ -10,7 +10,7 @@ async function bootstrap() {
   const appEnv = configService.get<string>('APP_ENV', 'development');
   const appPort = configService.get<number>('APP_PORT', 3000);
 
-  if (appEnv !== "production") {
+  if (appEnv !== "production1") {
     const options = new DocumentBuilder()
       .setTitle("API docs")
       .addBearerAuth()
