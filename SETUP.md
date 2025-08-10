@@ -2,23 +2,104 @@
 
 This project consists of a NextJS frontend and NestJS API backend for exploring Solana blockchain data.
 
+## Prerequisites
+
+Make sure you have [pnpm](https://pnpm.io/) installed:
+```bash
+npm install -g pnpm
+```
+
 ## Quick Start
 
-### 1. Start the API (Backend)
+### Option 1: Start Both Services Together (Recommended)
 ```bash
-cd packages/api
+# Install all dependencies
 pnpm install
-pnpm run start:dev
+
+# Start both API and frontend in development mode
+pnpm dev
+```
+
+### Option 2: Start Services Individually
+
+#### Start API Only
+```bash
+pnpm dev:api
 ```
 The API will run on **http://localhost:3002**
 
-### 2. Start the Frontend
+#### Start Frontend Only  
 ```bash
-cd packages/web
-pnpm install
-pnpm run dev
+pnpm dev:web
 ```
 The frontend will run on **http://localhost:3000**
+
+### Option 3: Manual Setup (if you prefer)
+```bash
+# Install dependencies for all packages
+pnpm install
+
+# Start API
+cd packages/api
+pnpm start:dev
+
+# In another terminal, start frontend
+cd packages/web  
+pnpm dev
+```
+
+## Production Build & Deployment
+
+### Build Both Services
+```bash
+# Build both API and frontend
+pnpm build
+
+# Or build individually
+pnpm build:api  # Build API only
+pnpm build:web  # Build frontend only
+```
+
+### Start Production Services
+```bash
+# Start both services in production mode
+pnpm start
+
+# Or start individually  
+pnpm start:api  # Start API in production mode
+pnpm start:web  # Start frontend in production mode
+```
+
+### Complete Production Workflow
+```bash
+# Build and start API in production
+pnpm prod:api
+
+# Build and start frontend in production  
+pnpm prod:web
+
+# Build and start both in production
+pnpm prod
+```
+
+## Available Scripts
+
+All scripts can be run from the root directory:
+
+| Script | Description |
+|--------|-------------|
+| `pnpm dev` | Start both API and frontend in development mode |
+| `pnpm dev:api` | Start API only in development mode |
+| `pnpm dev:web` | Start frontend only in development mode |
+| `pnpm build` | Build both API and frontend |
+| `pnpm build:api` | Build API only |
+| `pnpm build:web` | Build frontend only |
+| `pnpm start` | Start both services in production mode |
+| `pnpm start:api` | Start API only in production mode |
+| `pnpm start:web` | Start frontend only in production mode |
+| `pnpm prod` | Build and start both in production mode |
+| `pnpm prod:api` | Build and start API in production mode |
+| `pnpm prod:web` | Build and start frontend in production mode |
 
 ## Usage
 
@@ -33,22 +114,15 @@ The frontend connects to the NestJS API at:
 - **Base URL**: `http://localhost:3002`
 - **Endpoint**: `GET /api/solana/block/{blockNumber}/transactions`
 
-## Features
-
-- ✅ Modern, responsive UI with dark/light mode support
-- ✅ Input validation for block numbers
-- ✅ Error handling for invalid blocks or network issues
-- ✅ Loading states during API calls
-- ✅ CORS enabled for frontend-backend communication
-
 ## Architecture
 
 - **Frontend**: NextJS 15 with React 19 and Tailwind CSS
 - **Backend**: NestJS with Solana Web3.js integration
 - **API Communication**: REST API with JSON responses
+- **Package Management**: pnpm workspaces for monorepo management
 
 ## Notes
 
 - Make sure both the API and frontend are running simultaneously
 - The API uses Solana's mainnet by default
-- Block numbers refer to Solana slots (not traditional block numbers)
+- All dependencies are managed through pnpm workspaces from the root directory
